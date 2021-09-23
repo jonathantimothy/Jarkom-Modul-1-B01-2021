@@ -5,46 +5,51 @@
 <li> Mohammad Thoriq Huda - 05111940000207
 <br><br><br>
 
-## 1. Webserver yang digunakan pada "ichimarumaru.tech"
+### 1. Webserver yang digunakan pada "ichimarumaru.tech"
 
 
-## 2. Paket dari web-web yang menggunakan basic authentication method
+### 2. Paket dari web-web yang menggunakan basic authentication method
+
+Soal 2 meminta paket-paket apa saja yang berasal dari web-web yang menggunakan basic authentication method. Oleh karenanya digunakan filter `http.authbasic` pada file **1-5.pcapng**. Hasil filternya ditampilkan pada gambar berikut.
+  
+  <br>
+  <img src="./img/2.jpg" width=2000px>
+  
+
+### 3. Perintah di basic.ichimarumaru.tech
 
 
-## 3. Perintah di basic.ichimarumaru.tech
+### 4
 
 
-## 4
+### 5
 
 
-## 5
+### 6
 
 
-## 6
+### 7
 
 
-## 7
+### 8
 
 
-## 8
+### 9
 
 
-## 9
+### 10
 
 
-## 10
+### 11
 
 
-## 11
+### 12
 
 
-## 12
+### 13
 
 
-## 13
+### 14
 
 
-## 14
-
-
-## 15
+### 15
