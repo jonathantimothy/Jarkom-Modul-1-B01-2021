@@ -13,11 +13,15 @@
 Soal 2 meminta paket-paket apa saja yang berasal dari web-web yang menggunakan basic authentication method. Oleh karenanya digunakan filter `http.authbasic` pada file **1-5.pcapng**. Hasil filternya ditampilkan pada gambar berikut.
   
   <br>
+  <p align="center">
   <img src="./img/2.jpg" width=2000px>
-  
+  <em>Hasil filter web dengan authentication method</em>
+  <p> <br> <br>
 
 ### 3. Perintah di basic.ichimarumaru.tech
 
+Soal 3 meminta untuk mengikuti perintah pada situs http://basic.ichimarumaru.tech setelah mendapatkan username dan password yang tepat untuk bisa login ke situs tersebut.
+    Pencarian username dan password dilakukan dengan menggunakan filter `http.authbasic` pada file
 
 ### 4
 
