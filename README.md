@@ -10,7 +10,7 @@
 
 ### 2. Paket dari web-web yang menggunakan basic authentication method
 
-Soal 2 meminta paket-paket apa saja yang berasal dari web-web yang menggunakan basic authentication method. Oleh karenanya digunakan filter `http.authbasic` pada file **1-5.pcapng**. Hasil filternya ditampilkan pada gambar berikut.
+Soal 2 meminta paket-paket apa saja yang berasal dari web-web yang menggunakan basic authentication method. Oleh karenanya digunakan filter `http.authbasic` pada file **1-5.pcap**. Hasil filternya ditampilkan pada gambar berikut.
   
   <br>
   <p align="center">
@@ -21,7 +21,7 @@ Soal 2 meminta paket-paket apa saja yang berasal dari web-web yang menggunakan b
 ### 3. Perintah di basic.ichimarumaru.tech
 
 Soal 3 meminta untuk mengikuti perintah pada situs http://basic.ichimarumaru.tech setelah mendapatkan username dan password yang tepat untuk bisa login ke situs tersebut.
-    Pencarian username dan password dilakukan dengan menggunakan filter `http.authbasic` pada file **1-5.pcapng**. Berikut tampilannya.
+    Pencarian username dan password dilakukan dengan menggunakan filter `http.authbasic` pada file **1-5.pcap**. Berikut tampilannya.
     
   <br>
   <p align="center">
@@ -50,7 +50,7 @@ Setelah mengakses http://basic.ichimarumaru.tech dan memasukkan kombinasi di ata
 
 ### 4 Paket mysql yang mengandung perintah query select
 
-Soal 4 meminta untuk menemukan semua perintah query select yang terdapat pada **1-5.pcapng**. Untuk itu, digunakan sebuah filter untuk menyaring mysql dan juga mengambil hanya perintah selectnya. Kedua filter tersebut dihubungkan dengan konjungsi `and`. Filter yang digunakan adalah `mysql.command == 3 and frame matches "SELECT"`. Berikut tampilan tangkapan layarnya.
+Soal 4 meminta untuk menemukan semua perintah query select yang terdapat pada **1-5.pcap**. Untuk itu, digunakan sebuah filter untuk menyaring mysql dan juga mengambil hanya perintah selectnya. Kedua filter tersebut dihubungkan dengan konjungsi `and`. Filter yang digunakan adalah `mysql.command == 3 and frame contains "SELECT"`. Berikut tampilan tangkapan layarnya.
     
   <br>
   <p align="center">
@@ -61,7 +61,7 @@ Soal 4 meminta untuk menemukan semua perintah query select yang terdapat pada **
 ### 5. Perintah di portal.ichimarumaru.tech
 
 Soal 5 meminta untuk mengikuti perintah pada situs http://portal.ichimarumaru.tech setelah mendapatkan username dan password yang tepat untuk bisa login ke situs tersebut.
-    Pencarian username dan password dilakukan dengan menggunakan filter `tcp contains users` pada file **1-5.pcapng**. Berikut tampilannya.
+    Pencarian username dan password dilakukan dengan menggunakan filter `tcp contains users` pada file **1-5.pcap**. Berikut tampilannya.
     
   <br>
   <p align="center">
@@ -74,7 +74,7 @@ Pada gambar di atas dapat kita lihat di kolom `MySQL Protocol` > `Request Comman
         INSERT INTO users (username,password) VALUES ("akakanomi",md5("pemisah4lautan"))
 
     
-Sehingga disimpulkan bahwa kombinasi untuk masuk ke http://basic.ichimarumaru.tech ialah :
+Sehingga disimpulkan bahwa kombinasi untuk masuk ke http://portal.ichimarumaru.tech ialah :
     
          Username : akakanomi
          Password : pemisah4lautan
@@ -99,8 +99,37 @@ Setelah mengakses http://portal.ichimarumaru.tech dan memasukkan kombinasi di at
 ### 9
 
 
-### 10
-
+### 10. "history.txt" dan password pembuka secret.zip
+    
+Soal no 10 meminta untuk mencari password pembuka **secret.zip** yang ada di dalam **history.txt**. Untuk itu kita mencari isi dari **history.txt** pada file **8-10.pcap** dengan menggunakan filter `ftp-data.command contains history.txt`. Setelah itu klik kanan pada paket yang tertera, pilih follow TCP Stream. Berikut hasil tangkapan layarnya.
+    
+  <br>
+  <p align="center">
+  <img src="./img/10_history.jpg" width=2000px>
+  <em>Isi paket history.txt melalui follow TCP Stream</em>
+  <p> <br> <br>
+    
+Di dalamnya terdapat suatu baris berisi
+        key="$(tail -1 bukanapaapa.txt)"
+sehingga diasumsikan, password sebenarnya terdapat pada file **bukanapaapa.txt**
+    
+Langkah berikutnya yaitu mencari paket yang mengandung **bukanapaapa.txt** dengan menggunakan filter `ftp-data.command contains bukanapaapa.txt`. Lakukan hal yang sama seperti pada **history.txt** yakni klik kanan pada paket yang tertera, pilih follow TCP Stream. Berikut hasil tangkapan layarnya.
+    
+  <br>
+  <p align="center">
+  <img src="./img/10_bukanapaapa.jpg" width=2000px>
+  <em>Isi paket bukanapaapa.txt melalui follow TCP Stream</em>
+  <p> <br> <br> 
+    
+Didapatkan pesan di dalam **bukanapaapa.txt** berupa :
+        d1b1langbukanapaapajugagapercaya
+dimana pesan tersebut diasumsikan sebagai password dari file **Wanted.pdf** di dalam **secret.zip**. Dan ternyata benar saja, file **Wanted.pdf** dapat terbuka dengan menggunakan pesan di dalam **bukanapaapa.txt**. Berikut isi file **Wanted.pdf**.
+    
+  <br>
+  <p align="center">
+  <img src="./img/10_Wanted.jpg" width=2000px>
+  <em>Isi file Wanted.pdf setelah memasukkan password 'd1b1langbukanapaapajugagapercaya'</em>
+  <p> <br> <br> 
 
 ### 11
 
