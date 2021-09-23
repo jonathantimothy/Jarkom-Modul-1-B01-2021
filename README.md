@@ -131,20 +131,30 @@ dimana pesan tersebut diasumsikan sebagai password dari file **Wanted.pdf** di d
   <em>Isi file Wanted.pdf setelah memasukkan password 'd1b1langbukanapaapajugagapercaya'</em>
   <p> <br> <br> 
 
-### 11
+### 11. Filter sehingga wireshark hanya mengambil paket yang berasal dari port 80!
+untuk hanya mengambil paket yang berasal dari port 80, digunakan capture filter **src port 80**. Port 80 digunakan untuk protokol HTTP sehingga harus mengakses website yang menggunakan protokol HTTP agar paket muncul pada wireshark.<br><br>
+    ![Capturing from Wi-Fi (src port 80) 9_20_2021 7_49_13 PM](https://user-images.githubusercontent.com/81372291/134593571-e7dbcf22-72a5-4ca7-9646-19bdb7fd57d6.png)
 
 
-### 12
+### 12. Filter sehingga wireshark hanya mengambil paket yang mengandung port 21!
+untuk hanya mengambil paket yang mengandung port 21 digunakan capture filter **port 21**. Port 21 digunakan untuk FTP sehingga harus mengakses server FTP agar terdapat paket pada wireshark. Untuk mengakses FTP, bisa dibuka cmd dan memasukkan **ftp localhost**. akan muncul paket pada wireshark.<br><br>
+    ![Capturing from Adapter for loopback traffic capture (port 21) 9_20_2021 9_01_20 PM](https://user-images.githubusercontent.com/81372291/134593845-0cc9cab1-c3c2-4262-88cb-300bc6449eb8.png)
 
 
-### 13
+### 13. Filter sehingga wireshark hanya menampilkan paket yang menuju port 443!
+Untuk hanya menampilkan paket yang menuju port 443 dapat menggunakan capture filter **dst port 443** untuk menangkap paket, lalu digunakan display filter **tcp.port==443 or udp.port==443** agar wireshark hanya menampilkan paket yang menuju port 443.<br><br>
+    ![_Wi-Fi (dst port 443) 9_20_2021 8_37_11 PM](https://user-images.githubusercontent.com/81372291/134594182-4ffd71a7-2088-4af5-80e8-7fb3cde3acad.png)
 
 
-### 14
+### 14. Filter sehingga wireshark hanya mengambil paket yang tujuannya ke kemenag.go.id!
+Untuk hanya mengambil paket yang tujuannya ke kemenag.go.id, digunakan capture filter **dst host kemenag.go.id**, lalu membuka kemenag.go.id pada browser agar paket muncul pada wireshark.<br><br>
+    ![Capturing from Wi-Fi (dst host kemenag go id) 9_20_2021 8_26_25 PM](https://user-images.githubusercontent.com/81372291/134594426-425fac50-8d19-4252-a2cd-b434a13be07f.png)
 
 
-### 15
-    
+### 15. Filter sehingga wireshark hanya mengambil paket yang berasal dari ip kalian!
+Untuk hanya mengambil paket berasal dari ip sendiri maka harus mencari tahu IP  terlebih dahulu, bisa dilakukan dengan membuka cmd dan memasukkan **ipconfig**. Akan terlihat IP sendiri pada bagian IPv4. untuk hanya mengambil paket yang berasal dari IP sendiri, digunakan capture filter **src host ip**. Untuk IP saya sendiri adalah 192.168.1.3 , sehingga capture filternya adalah **src host 192.168.1.3**.<br><br>
+    ![_Wi-Fi (src host 192 168 1 3) 9_24_2021 6_05_43 AM](https://user-images.githubusercontent.com/81372291/134595251-ba39a4a2-dc98-42b5-baf9-b01f9e2a63c7.png)
+
     
 ### Kendala yang dialami
     
