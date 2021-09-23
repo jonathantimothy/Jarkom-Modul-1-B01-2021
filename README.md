@@ -144,3 +144,9 @@ dimana pesan tersebut diasumsikan sebagai password dari file **Wanted.pdf** di d
 
 
 ### 15
+    
+    
+### Kendala yang dialami
+    
+<li> Pada soal nomor 4 terdapat permintaan dari asdos penguji untuk menggunakan filter yang lebih spesifik
+<li> Terdapat username seijaku yang ternyata tidak dapat dipakai login di situs manapun
