@@ -110,7 +110,7 @@ Soal no 10 meminta untuk mencari password pembuka **secret.zip** yang ada di dal
   <p> <br> <br>
     
 Di dalamnya terdapat suatu baris berisi
-        key="$(tail -1 bukanapaapa.txt)"
+        `key="$(tail -1 bukanapaapa.txt)"`
 sehingga diasumsikan, password sebenarnya terdapat pada file **bukanapaapa.txt**
     
 Langkah berikutnya yaitu mencari paket yang mengandung **bukanapaapa.txt** dengan menggunakan filter `ftp-data.command contains bukanapaapa.txt`. Lakukan hal yang sama seperti pada **history.txt** yakni klik kanan pada paket yang tertera, pilih follow TCP Stream. Berikut hasil tangkapan layarnya.
@@ -122,7 +122,7 @@ Langkah berikutnya yaitu mencari paket yang mengandung **bukanapaapa.txt** denga
   <p> <br> <br> 
     
 Didapatkan pesan di dalam **bukanapaapa.txt** berupa :
-        d1b1langbukanapaapajugagapercaya
+        ```d1b1langbukanapaapajugagapercaya```
 dimana pesan tersebut diasumsikan sebagai password dari file **Wanted.pdf** di dalam **secret.zip**. Dan ternyata benar saja, file **Wanted.pdf** dapat terbuka dengan menggunakan pesan di dalam **bukanapaapa.txt**. Berikut isi file **Wanted.pdf**.
     
   <br>
