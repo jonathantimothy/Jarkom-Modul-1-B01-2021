@@ -6,6 +6,24 @@
 <br><br><br>
 
 ### 1. Webserver yang digunakan pada "ichimarumaru.tech"
+  Soal nomer 1 meminta untuk mencari webserver apa yang digunakan oleh “ichimarumaru.tech”.
+Menggunakan display filter `http.host contains "ichimarumaru.tech"` pada file **1-5.pcap**, Hasil Filternya dapat dilihat di bawah ini :
+
+  <p align="center">
+  <img src="./img/gambar%201.1.JPG" width=2000px>
+  <p> 
+
+kemudian klik kanan pada data yang terfilter, carai Filter -> TCP Stream, Kemudian akan terlihat webserver apa yang digunakan , seperti dibawah ini :
+
+  <p align="center">
+  <img src="./img/gambar%201.2.JPG" width=2000px>
+  <p>
+
+  <p align="center">
+  <img src="./img/gambar%201.3.JPG" width=2000px>
+  <p>
+    
+Ditemukan bahwa Webserver yang digunakan adalah **NGINX/1.18.0 (Ubuntu)**
 
 
 ### 2. Paket dari web-web yang menggunakan basic authentication method
@@ -87,16 +105,108 @@ Setelah mengakses http://portal.ichimarumaru.tech dan memasukkan kombinasi di at
   <em>Laman http://portal.ichimarumaru.tech dan konfigurasi T568B</em>
   <p> <br> <br>
 
-### 6
+### 6. Cari username dan password ketika melakukan login ke FTP Server
+
+Soal ini meminta kita untuk mencari username dan password ketika melakukan login ke FTP Server, caranya menggunakan display filter `Ftp-data` kemudian klik kanan ke datanya cara **Follow -> TCP Stream**
+    
+  <p align="center">
+  <img src="./img/gambar%206.1.jpg" width=2000px>
+  <p>
+    
+  <p align="center">
+  <img src="./img/gambar%206.2.jpg" width=2000px>
+  <p>
+
+Terdapat cara yang lebih efisien yaitu menggunakan `ftp.request.command == USER or ftp.request.command == PASS`
+    
+  <p align="center">
+  <img src="./img/gambar%206.3.JPG" width=2000px>
+  <p>
+
+Keduanya memiliki hasil yang sama, dengan menunjukkan bahwa
+Username : secretuser
+Password : aku.pengen.pw.aja
 
 
-### 7
+### 7. Ada 500 file zip yang disimpan ke FTP Server dengan nama 0.zip, 1.zip, 2.zip, ..., 499.zip. Simpan dan Buka file pdf tersebut. (Hint = nama pdf-nya "Real.pdf")
+  
+Dari soal diatas terdapat kata kunci yaitu Real.pdf, lalu gunakan display filter `frame contains "Real.pdf"` 
+
+<p align="center">
+  <img src="./img/gambar%207.1.JPG" width=2000px>
+ <p>
+
+Kemudian klik kanan cari **Follow -> TCP Stream**
+<p align="center">
+  <img src="./img/gambar%207.2.JPG" width=2000px>
+  <p>
+Kemudian ubah file ASCII menjadi RAW
+<p align="center">
+  <img src="./img/gambar%207.3.JPG" width=2000px>
+ <p>
+<p align="center">
+  <img src="./img/gambar%207.4.JPG" width=2000px>
+ <p>
+
+Lalu Save as di driver PC / Laptop masing-masing
+<p align="center">
+  <img src="./img/gambar%207.5.JPG" width=2000px>
+ <p>
+Ekstrak atau langsung buka saja, lalu aka nada file Bernama Real.pdf dan ketika di buka akan terdapat gambar dan tulisan “YOU FOUND ME”
+<p align="center">
+  <img src="./img/gambar%207.6.JPG" width=2000px>
+ <p>
 
 
-### 8
+### 8. Cari paket yang menunjukan pengambilan file dari FTP tersebut!
+
+Kemudian soal direvisi menjadi "Cari paket yang menunjukan penggunggahan file menuju FTP tersebut!
+Untuk yang **pengambilan** file menggunakan `ftp contains “RETR”`  dengan display filter, namun hasilnya tidak ada hasil paket yang menunjukkan pengambilan file
+<p align="center">
+  <img src="./img/gambar%208.1.JPG" width=2000px>
+ <p>
+
+Sedangkan untuk yang **pengunggahan** file menggunakan ftp contains “STOR”  dengan display filter, dan hasilnya terdapat paket yang menunjukkan pengunggahan file
+
+<p align="center">
+  <img src="./img/gambar%208.2.JPG" width=2000px>
+ <p>
 
 
-### 9
+### 9. Dari paket-paket yang menuju FTP terdapat indikasi penyimpanan beberapa file. Salah satunya adalah sebuah file berisi data rahasia dengan nama "secret.zip". Simpan dan buka file tersebut!
+   
+Soal ini meminta untuk mencari file bernama *“secret.zip”* dan menampilkan isi dari file tersebut serta membukanya.
+Pertama menggunakan `ftp-data.command contains "secret.zip"` dengan Display Filter
+<p align="center">
+  <img src="./img/gambar%209.1.JPG" width=2000px>
+ <p>
+
+Kemudian klik kanan cari **Follow -> TCP Stream**
+
+<p align="center">
+  <img src="./img/gambar%209.2.JPG" width=2000px>
+ <p>
+
+Kemudian ubah file ASCII menjadi RAW
+<p align="center">
+  <img src="./img/gambar%209.3.JPG" width=2000px>
+ <p>
+
+Lalu Save as di driver PC / Laptop masing-masing dengan nama fiile “secret.zip”
+<p align="center">
+  <img src="./img/gambar%209.4.JPG" width=2000px>
+<p>
+  
+Ekstrak atau langsung buka saja, lalu akan terdapat file Bernama `wanted.pdf` dan ketika di buka akan menyuruh memasukkan password, password dapat dicari di nomer 10 dan ditemukan bahwa passwordnya **d1b1langbukanapaapajugagapercaya**
+Dan ketika dimasukkan berisi seperti berikut :
+
+<p align="center">
+  <img src="./img/gambar%209.5.JPG" width=2000px>
+ <p>
+  
+<p align="center">
+  <img src="./img/gambar%209.6.JPG" width=2000px>
+ <p>
 
 
 ### 10. "history.txt" dan password pembuka secret.zip
