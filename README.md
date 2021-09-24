@@ -270,3 +270,5 @@ Untuk hanya mengambil paket berasal dari ip sendiri maka harus mencari tahu IP  
     
 <li> Pada soal nomor 4 terdapat permintaan dari asdos penguji untuk menggunakan filter yang lebih spesifik
 <li> Terdapat username seijaku yang ternyata tidak dapat dipakai login di situs manapun
+<li> Dalam pengerjaan nomer 8 agak bingung karena datanya tida ada
+<li> Dalam pengerjaan nomer 9 bingung di perbedaan ftp-data contains "secret.zip" dan ftp-data.command contains "secret.zip" karena hasil ketika di save as bentuk raw berbeda
